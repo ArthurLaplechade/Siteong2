@@ -33,6 +33,11 @@ nav a:hover {
   text-decoration: underline;
   color: #cce7cc;
 }
+    h1, h2,h3,h4, h5,h6 {
+    color: var(--cor-secundaria);
+    font-weight: 700;
+    
+        box-shadow: 5px 3px 7px 1px aquamarine;
 
 .slogan {
   font-size: 1em;
