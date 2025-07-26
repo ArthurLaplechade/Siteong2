@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contato - ONG Esperança Viva</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🌱 ONG Esperança Viva</h1>
+    <p class="slogan">"Transformando vidas, cultivando futuros."</p>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="projeto.html">Projetos</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+   <h2>Formulário de Cadastro</h2>
+
+
+  <form id="formulario">
+
+    <label>Nome completo:</label><br>
+
+    <input type="text" name="nome" required><br>
+
+
+    <label>Idade:</label><br>
+
+    <input type="number" name="idade" required><br>
+
+<label>Mensagem</label><br>
+
+    <input type="text" name="Mensagem" required><br>
+
+
+
+    <div id="emails">
+
+      <div class="email-group">
+
+        <label>Email:</label><br>
+
+        <input type="email" name="email" required>
+
+      </div>
+
+    </div>
+
+
+    <button type="button" onclick="adicionarEmail()">Adicionar outro email</button><br>
+
+
+    <button type="submit">Enviar</button>
+
+    <button type="button" onclick="limparFormulario()">Limpar</button>
+
+  </form>
+
+
+  <script>
+
+    const form = document.getElementById('formulario');
+
+    const emailsDiv = document.getElementById('emails');
+
+
+    // Adicionar outro campo de e-mail
+
+    function adicionarEmail() {
+
+      const novaDiv = document.createElement('div');
+
+      novaDiv.className = 'email-group';
+
+      novaDiv.innerHTML = `
+
+        <label>Email adicional:</label><br>
+
+        <input type="email" name="email" required>
+
+      `;
+
+      emailsDiv.appendChild(novaDiv);
+
+    }
+
+
+    // Enviar o formulário
+
+    form.addEventListener('submit', function (e) {
+
+      e.preventDefault();
+
+
+      const inputs = form.querySelectorAll('input');
+
+      for (let input of inputs) {
+
+        if (!input.value.trim()) {
+
+          alert('Por favor, preencha todos os campos.');
+
+          return;
+
+        }
+
+      }
+
+
+      alert('Formulário enviado com sucesso!');
+
+      // Aqui você pode enviar os dados via fetch/AJAX ou outro método
+
+    });
+
+
+    // Limpar o formulário
+
+    function limparFormulario() {
+
+      form.reset();
+
+      // Remover e-mails adicionais, se houver
+
+      const emailGroups = emailsDiv.querySelectorAll('.email-group');
+
+      for (let i = emailGroups.length - 1; i > 0; i--) {
+
+        emailsDiv.removeChild(emailGroups[i]);
+
+      }
+
+    }
+
+  </script>
+
+
+  </main>
+
+  <footer>
+    <p>© 2025 ONG Esperança Viva | contato@esperancaviva.org | Tel: (00) 0000-0000</p>
+  </footer>
+</body>
+</html>
